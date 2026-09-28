@@ -1,0 +1,447 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>刘梓钰 (Sylvia) · 游戏策划作品集</title>
+        <style>
+            :root { --primary: #6C5DD3; --accent: #FFD036; --text: #2D3748; --bg: #F7FAFC; }
+            body { font-family: 'PingFang SC', system-ui, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+            header { background: linear-gradient(135deg, #4F46E5 0%, #9333EA 100%); color: white; padding: 60px 20px; text-align: center; }
+            .header-inner { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+            /* 头像样式优化 */
+            .profile-photo { width: 160px; height: 160px; border-radius: 50%; border: 5px solid rgba(255,255,255,0.3); object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.2); background: #fff; }
+
+            h1 { margin: 0; font-size: 2.5rem; font-weight: 800; }
+            .tagline { font-size: 1.1rem; opacity: 0.9; max-width: 700px; }
+            .contact-info span { display: inline-block; background: rgba(255,255,255,0.15); padding: 5px 15px; border-radius: 20px; margin: 5px; font-size: 0.9rem; }
+
+            .container { max-width: 1000px; margin: -40px auto 60px; padding: 0 20px; position: relative; z-index: 10; }
+            .section-title { font-size: 1.5rem; color: var(--primary); border-left: 6px solid var(--accent); padding-left: 15px; margin: 50px 0 25px; font-weight: 700; }
+
+            .traits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-bottom: 40px; }
+            .trait-card { background: white; padding: 20px; border-radius: 12px; display: flex; gap: 15px; align-items: flex-start; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+            .trait-icon { font-size: 2rem; }
+            .trait-label { font-weight: bold; color: var(--primary); font-size: 0.95rem; margin-bottom: 4px; }
+            .trait-text { font-size: 0.85rem; color: #666; line-height: 1.4; }
+
+            .edu-item { background: white; padding: 25px; border-radius: 12px; margin-bottom: 15px; display: flex; gap: 20px; border-left: 5px solid var(--accent); box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
+            .edu-icon { font-size: 2rem; }
+            .edu-title { font-weight: bold; font-size: 1.1rem; color: #333; }
+            .edu-degree { font-weight: normal; color: #666; font-size: 0.95rem; }
+            .edu-time { font-size: 0.85rem; color: #999; margin: 5px 0 10px; }
+            .edu-desc { font-size: 0.95rem; color: #555; }
+
+            .exp-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+            .exp-item { background: white; padding: 25px; border-radius: 12px; position: relative; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.03); border: 1px solid #eee; }
+            .exp-badge { position: absolute; top: 0; right: 0; padding: 5px 15px; color: white; font-size: 0.8rem; font-weight: bold; border-bottom-left-radius: 12px; }
+            .exp-header { margin-bottom: 12px; }
+            .exp-title { font-weight: bold; font-size: 1.1rem; color: #333; margin-bottom: 4px; }
+            .exp-role { color: #666; font-size: 0.9rem; font-weight: 500; }
+            .exp-desc { color: #555; font-size: 0.95rem; line-height: 1.6; }
+
+            .game-blocks-container { display: flex; flex-direction: column; gap: 30px; }
+            .game-block { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 5px solid #ccc; }
+            .block-header { padding: 20px 30px; display: flex; justify-content: space-between; align-items: center; }
+            .block-header h3 { margin: 0; font-size: 1.25rem; }
+            .block-badge { background: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; opacity: 0.9; }
+            .block-body { padding: 30px; }
+            .game-item { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed #eee; }
+            .game-item:last-child { border-bottom: none; margin-bottom: 0; }
+            .game-name { font-weight: bold; color: #333; font-size: 1.05rem; margin-bottom: 5px; }
+            .game-desc { color: #555; font-size: 0.95rem; }
+            .insight-box { background: #fafafa; border-left: 4px solid #ddd; padding: 15px; margin-top: 20px; font-size: 0.9rem; color: #666; font-style: italic; }
+
+            .project-card { background: white; padding: 25px; border-radius: 12px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; gap: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.03); border: 1px solid #eee; }
+            .project-info h3 { margin: 0 0 5px; color: var(--primary); }
+            .project-info p { margin: 0; color: #666; font-size: 0.9rem; }
+            .btn-link { background: var(--primary); color: white; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; transition: opacity 0.2s; white-space: nowrap; }
+            .btn-link:hover { opacity: 0.9; }
+            .btn-disabled { background: #eee; color: #999; padding: 10px 20px; border-radius: 8px; font-size: 0.85rem; cursor: default; white-space: nowrap; }
+
+
+            /* 增量改动：能力卡片、经历关键词、游戏阅历错落布局 */
+            .ability-intro { margin: 35px 0 25px; display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; }
+            .ability-intro h2 { margin: 0; color: var(--text); font-size: 1.9rem; line-height: 1.2; }
+            .ability-intro .section-kicker { margin: 0 0 5px; color: var(--primary); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.16em; }
+            .ability-intro p { max-width: 540px; margin: 0; color: #6e7789; font-size: 0.9rem; }
+            .ability-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 45px; }
+            .ability-card { background: white; padding: 22px; border-radius: 14px; border: 1px solid #edf0f6; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+            .ability-index { color: var(--primary); font-size: 0.78rem; font-weight: 800; }
+            .ability-card h3 { margin: 12px 0 7px; color: #2D3748; font-size: 1.05rem; }
+            .ability-card p { margin: 0; color: #6e7789; font-size: 0.86rem; line-height: 1.55; }
+            .ability-card:nth-child(2) .ability-index { color: #2aa4b0; }
+            .ability-card:nth-child(3) .ability-index { color: #e16a82; }
+            .keyword-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+            .keyword { display: inline-block; padding: 4px 9px; border-radius: 999px; background: #f0efff; color: #5345bd; font-size: 0.75rem; font-weight: 700; line-height: 1.3; }
+            .keyword-cyan { background: #e5f8fa; color: #197f89; }
+            .keyword-warm { background: #fff5df; color: #996719; }
+
+            .exp-item .ability-intro { margin: 26px 0 18px; padding-top: 22px; border-top: 1px solid #edf0f6; }
+            .exp-item .ability-intro h2 { font-size: 1.45rem; }
+            .exp-item .ability-intro p { font-size: 0.84rem; }
+            .exp-item .ability-grid { margin-bottom: 0; }
+            .exp-item .ability-card { padding: 17px; }
+            .exp-item .ability-card h3 { font-size: 0.95rem; }
+            .exp-item .ability-card p { font-size: 0.78rem; }
+
+
+
+            .exp-point { margin-bottom: 9px; }
+            .exp-point:last-child { margin-bottom: 0; }
+            .exp-point b { color: #3f4c68; }
+            .edu-desc a { white-space: nowrap; }
+            .game-block .game-point-grid { min-height: 170px; }
+            .game-body-mosaic .game-item-primary .game-point-grid { margin-bottom: 4px; }
+            .game-body-single { display: block !important; }
+            .game-body-single .game-item-primary { margin: 0 !important; padding: 0 !important; border-bottom: none !important; }
+            .game-body-single .game-point-grid { grid-template-columns: repeat(2, 1fr); }
+            @media (max-width: 768px) { .game-body-single .game-point-grid { grid-template-columns: 1fr; } }
+
+            /* v4：实习/校园分区与游戏板块内部的重点分点 */
+            .game-body-mosaic { display: grid !important; grid-template-columns: minmax(0, 1.35fr) minmax(250px, 0.65fr) !important; gap: 18px !important; align-items: stretch !important; }
+            .game-body-mosaic .game-item-primary { margin: 0 !important; padding: 0 18px 0 0 !important; border-bottom: none !important; }
+            .game-body-mosaic .game-side-items { display: flex; flex-direction: column; gap: 18px; }
+            .game-body-mosaic .game-side-items .game-item { margin: 0; padding: 0 0 16px; }
+            .game-point-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
+            .game-point { padding: 13px 14px; border-radius: 11px; background: #f7f7fc; border: 1px solid #ececf6; }
+            .game-point strong { display: block; margin-bottom: 4px; color: var(--primary); font-size: 0.88rem; }
+            .game-point span { display: block; color: #6e7789; font-size: 0.78rem; line-height: 1.55; }
+            .game-body-mosaic .insight-box { grid-column: 1 / -1; margin-top: 0; }
+            @media (max-width: 768px) {
+                .game-body-mosaic { display: block !important; }
+                .game-body-mosaic .game-item-primary { padding: 0 0 16px !important; }
+                .game-body-mosaic .game-side-items { display: block; }
+                .game-body-mosaic .game-side-items .game-item { margin: 20px 0 0; }
+                .game-point-grid { grid-template-columns: 1fr; }
+            }
+
+            /* 游戏阅历：保留五个大板块，每个板块内部突出重点游戏 */
+            .game-blocks-container { display: flex; flex-direction: column; gap: 30px; }
+            .game-block .block-body { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr); gap: 18px; align-items: start; }
+            .game-block .game-item { margin: 0; padding-bottom: 16px; }
+            .game-block .game-item:first-child { grid-row: span 2; }
+            .game-block .insight-box { grid-column: 1 / -1; margin-top: 0; }
+            .game-block:nth-child(5) .block-body { grid-template-columns: 1fr; }
+            .game-blocks-container .game-block:nth-child(1) .block-header h3 { font-size: 1.35rem; }
+            .game-blocks-container .game-block:nth-child(1) .block-body { padding: 32px; }
+            .game-blocks-container .game-block:nth-child(n+2) .block-header { padding: 17px 22px; }
+            .game-blocks-container .game-block:nth-child(n+2) .block-header h3 { font-size: 1.08rem; }
+            .game-blocks-container .game-block:nth-child(n+2) .block-body { padding: 22px; }
+
+            .game-blocks-container .game-block:nth-child(1) { grid-area: moba; }
+            .game-blocks-container .game-block:nth-child(2) { grid-area: puzzle; }
+            .game-blocks-container .game-block:nth-child(3) { grid-area: strategy; }
+            .game-blocks-container .game-block:nth-child(4) { grid-area: tabletop; }
+            .game-blocks-container .game-block:nth-child(5) { grid-area: narrative; }
+            .game-blocks-container .game-block { height: 100%; }
+            .game-blocks-container .game-block:nth-child(1) .block-header h3 { font-size: 1.35rem; }
+            .game-blocks-container .game-block:nth-child(1) .block-body { padding: 32px; }
+            .game-blocks-container .game-block:nth-child(n+2) .block-header { padding: 17px 22px; }
+            .game-blocks-container .game-block:nth-child(n+2) .block-header h3 { font-size: 1.08rem; }
+            .game-blocks-container .game-block:nth-child(n+2) .block-body { padding: 22px; }
+            @media (max-width: 768px) {
+                .ability-intro { display: block; }
+                .ability-intro p { margin-top: 10px; }
+                .ability-grid { grid-template-columns: 1fr; }
+                .game-blocks-container { display: flex; flex-direction: column; }
+                .game-block .block-body { display: block; }
+                .game-block .game-item:first-child { grid-row: auto; }
+                .game-block .game-item { margin-bottom: 20px; }
+            }
+
+            @media (max-width: 768px) {
+                .block-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+                .project-card { flex-direction: column; align-items: flex-start; }
+                .btn-link, .btn-disabled { display: block; width: 100%; text-align: center; box-sizing: border-box; }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="header-inner">
+                <img src="avatar.jpg" alt="刘梓钰头像" class="profile-photo"> alt="Profile" class="profile-photo">
+                <div>
+                    <h1>刘梓钰 (Sylvia)</h1>
+                    <div style="margin: 10px 0; font-weight: bold; opacity: 0.9;">游戏策划实习生 / 数字经济硕士在读</div>
+                    <div class="tagline">上海外国语大学数字经济硕士在读，现任腾讯游戏策划实习生。关注英雄卡牌、战斗节奏与玩家体验，擅长把游戏体验拆解成可沟通、可验证的机制方案。</div>
+                </div>
+                <div class="contact-info">
+                    <span>📧 2628245600@qq.com</span>
+                    <span>📱 180-5341-4382</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+
+            <div class="traits-grid" style="margin-top: 30px;">
+                
+        <div class="trait-card">
+            <div class="trait-icon">🗣️</div>
+            <div class="trait-content">
+                <div class="trait-label">语言优势 (Language)</div>
+                <div class="trait-text"><b>英语：</b>大学英语四级、大学英语六级、专业四级、专业八级<br><b>日语：</b>专业四级、专业八级、N1</div>
+            </div>
+        </div>
+        
+        <div class="trait-card">
+            <div class="trait-icon">♓</div>
+            <div class="trait-content">
+                <div class="trait-label">双鱼座 (Pisces)</div>
+                <div class="trait-text">想象力丰富，极强的共情能力，能敏锐捕捉玩家在社交互动中的情感需求。</div>
+            </div>
+        </div>
+        
+        <div class="trait-card">
+            <div class="trait-icon">🎭</div>
+            <div class="trait-content">
+                <div class="trait-label">MBTI: ESFP</div>
+                <div class="trait-text">外向、热情、善于共情，喜欢在真实体验和交流中捕捉玩家情绪与社交需求。</div>
+            </div>
+        </div>
+        
+        <div class="trait-card">
+            <div class="trait-icon">🏸</div>
+            <div class="trait-content">
+                <div class="trait-label">体能充沛</div>
+                <div class="trait-text">羽毛球 / 游泳。保持高强度的运动习惯，抗压能力Max。</div>
+            </div>
+        </div>
+        
+            </div>
+
+            <div class="section-title">🎓 教育背景 (Education)</div>
+            <div>
+        <div class="edu-item">
+            <div class="edu-icon">🎓</div>
+            <div class="edu-content">
+                <div class="edu-title">上海外国语大学 <span class="edu-degree">| 国际贸易学 (数字经济方向) | 硕士</span></div>
+                <div class="edu-time">2025.09 - 2028.06</div>
+                <div class="edu-desc"><b>绩点：</b> 3.95/4.0 <a href="graduate_transcript_proof.png" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;color:#6C5DD3;font-weight:600;">📄 查看研究生成绩证明</a><br><b>核心课程：</b> 高级微观经济学、高级宏观经济学、高级计量经济学、经济金融理论与行为分析、国际金融</div>
+            </div>
+        </div>
+        
+        <div class="edu-item">
+            <div class="edu-icon">🎓</div>
+            <div class="edu-content">
+                <div class="edu-title">上海外国语大学 <span class="edu-degree">| 国际经济与贸易 (日语) | 本科</span></div>
+                <div class="edu-time">2021.09 - 2025.06</div>
+                <div class="edu-desc"><b>本科绩点：</b> 3.84/4.0 <a href="undergraduate_transcript.pdf" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;color:#6C5DD3;font-weight:600;">📄 点击查看本科成绩单</a><br><b>核心荣誉：</b> 连续四年获校奖学金（专业前10%） <a href="scholarship_certificate.pdf" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;color:#6C5DD3;font-weight:600;">📄 查看奖学金证书</a><br><b>复合背景：</b> 兼具“外语+经贸”双重优势，能从全球化与商业化双重视角审视游戏</div>
+            </div>
+        </div>
+        </div>
+
+            <div class="section-title">⚔️ 实习经历 (Professional Experience)</div>
+            <div class="exp-grid">
+        <div class="exp-item">
+            <div class="exp-badge" style="background:#E11D48">腾讯游戏</div>
+            <div class="exp-header">
+                <div class="exp-title">🎮 腾讯科技（上海）有限公司 · 《元梦之星》</div>
+                <div class="exp-role">游戏策划实习生 | 2026.01 - 至今</div>
+            </div>
+            <div class="exp-desc"><div class="exp-point"><b>英雄卡牌设计：</b>参与瑶、诺娃、冰夷等英雄专属卡牌玩法优化，结合英雄定位、技能机制与实际战斗体验，协助调整卡牌效果、触发条件和技能联动关系</div><div class="exp-point"><b>功能跑测与问题反馈：</b>通过实际对局、录屏和测试记录，检查技能释放、命中效果、伤害表现、技能时序、特效音效和卡牌收益是否符合设计预期，整理异常并推动复测</div><div class="exp-point"><b>跨岗位沟通：</b>与程序、美术、音效、数值等岗位沟通技能特效、动作表现、音效反馈、伤害数值和控制效果的适配情况</div><div class="exp-point"><b>模式与公共卡牌：</b>拆解《英雄联盟》海克斯大乱斗、《王者荣耀》大乱斗、超极限狂潮等玩法，参与《元梦之星》公共卡牌设计及大乱斗模式适配</div></div><div class="keyword-row"><span class="keyword">英雄卡牌</span><span class="keyword">技能联动</span><span class="keyword keyword-cyan">功能跑测</span><span class="keyword keyword-cyan">跨岗位协作</span></div>
+                <div class="ability-intro">
+                    <div><div class="section-kicker">WHAT I CAN DO</div><h2>把游戏体验转成策划语言</h2></div>
+                    <p>我的优势不只是玩过哪些游戏，而是能说明玩家为什么做出选择、机制如何形成反馈，以及问题应该如何被验证。</p>
+                </div>
+                <div class="ability-grid">
+                    <div class="ability-card"><div class="ability-index">01 / 战斗机制</div><h3>英雄卡牌与技能联动</h3><p>结合英雄定位、技能机制和战斗体验，分析卡牌效果、触发条件、收益节奏与技能联动。</p></div>
+                    <div class="ability-card"><div class="ability-index">02 / 研发协作</div><h3>跑测、反馈与复测闭环</h3><p>通过对局、录屏和测试记录定位问题，并与程序、美术、音效、数值等岗位沟通适配。</p></div>
+                    <div class="ability-card"><div class="ability-index">03 / 玩家视角</div><h3>从长期体验反推设计</h3><p>长期体验竞技、解谜、经营、合作和桌游，关注难度、资源、节奏、社交和内容留存。</p></div>
+                </div>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-badge" style="background:#6C5DD3">AI 实战</div>
+            <div class="exp-header">
+                <div class="exp-title">💼 上海交大工业技术创新研究院</div>
+                <div class="exp-role">综合管理部实习生（AI与孵化方向） | 2024.09 - 2025.05</div>
+            </div>
+            <div class="exp-desc"><div class="exp-point"><b>孵化器体系搭建：</b>从0到1搭建孵化器组织架构与飞书体系，协助编写各项制度、制定财务预算并完善日常协作流程</div><div class="exp-point"><b>入孵企业对接：</b>全周期服务12家科创企业入孵，协助完成工商注册、政策申报等事务支持，跟进企业在孵期间的需求</div><div class="exp-point"><b>政府与活动协作：</b>与徐汇区相关部门保持沟通，协助企业成长；策划执行“AI+”产学研融合活动10场，合作方包括交大硬科技、way to agi社区等，覆盖2000+人次</div><div class="exp-point"><b>AI工具实践：</b>使用Coze搭建发票查重Agent，自动提取发票关键字段并与历史记录比对，辅助识别重复使用发票；同时参与投资风险提示助手的信息提取与舆情整理</div></div><div class="keyword-row"><span class="keyword keyword-warm">项目统筹</span><span class="keyword keyword-warm">AI实践</span><span class="keyword keyword-warm">活动落地</span></div>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-badge" style="background:#64748B">数据审计</div>
+            <div class="exp-header">
+                <div class="exp-title">💼 普华永道中天会计师事务所（特殊普通合伙）</div>
+                <div class="exp-role">审计部实习生 | 2024.01.16 - 2024.03.08</div>
+            </div>
+            <div class="exp-desc"><div class="exp-point"><b>客户与银行沟通：</b>与甲方客户建立有效沟通，获取银行对账单、信用报告等关键财务资料，并与中日两国银行跟进函证进度</div><div class="exp-point"><b>函证流程优化：</b>基于银行账户信息统计发函数据，确认回函内容并计算回函比例；针对未回函部分实施替代测试，保障数据完整性和准确性</div><div class="exp-point"><b>报表底稿编制：</b>协助完成资产、负债等七大核心报表科目底稿的撰写与整理，核对数据并保持工作底稿的完整性</div></div><div class="keyword-row"><span class="keyword">数据敏感度</span><span class="keyword keyword-cyan">流程意识</span><a class="keyword keyword-cyan" href="internship_certificate_pwc.pdf" target="_blank" rel="noopener noreferrer">📄 查看实习证明 ↗</a></div>
+        </div>
+        </div>
+
+            <div class="section-title">🏫 校园经历 (Campus Experience)</div>
+            <div class="exp-grid">
+        <div class="exp-item">
+            <div class="exp-badge" style="background:#F59E0B">校园外联</div>
+            <div class="exp-header">
+                <div class="exp-title">🏫 上海外国语大学 · 外联部</div>
+                <div class="exp-role">核心干事 | 2021.09 - 2023.06</div>
+            </div>
+            <div class="exp-desc"><div class="exp-point"><b>商户拓展：</b>走访洽谈100+商户，介绍校园活动合作需求，持续跟进赞助沟通与资源匹配</div><div class="exp-point"><b>活动策划：</b>参与“和风盛典”等大型活动的策划与执行，协助梳理活动流程、合作权益和现场安排</div><div class="exp-point"><b>内容产出：</b>撰写活动策划书、公众号推文等材料，将活动想法整理成对外沟通和执行所需的具体方案</div></div><div class="keyword-row"><span class="keyword keyword-warm">对外沟通</span><span class="keyword keyword-warm">资源协同</span><span class="keyword keyword-warm">活动策划</span></div>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-badge" style="background:#F59E0B">挑战杯</div>
+            <div class="exp-header">
+                <div class="exp-title">🏆 第十八届“挑战杯”全国大学生课外学术科技作品竞赛</div>
+                <div class="exp-role">项目成员 | 上海外国语大学校级选拔赛</div>
+            </div>
+            <div class="exp-desc"><div class="exp-point"><b>项目主题：</b>《郊野公园背景下新农村的机遇与挑战——以上海庄行郊野公园为例》</div><div class="exp-point"><b>实地调研：</b>与同学实际探访上海庄行郊野公园，观察郊野公园建设、乡村环境和当地发展状况</div><div class="exp-point"><b>项目思考：</b>结合实地体验，思考新农村在文旅融合、产业发展和社区建设等方向上的机会与挑战</div><div class="exp-point"><b>项目成果：</b>获上海外国语大学校级选拔赛三等奖</div></div>
+            <div class="keyword-row"><span class="keyword keyword-warm">团队协作</span><span class="keyword keyword-warm">项目研究</span><span class="keyword keyword-cyan">校级三等奖</span><a class="keyword keyword-cyan" href="challenge_cup_certificate.pdf" target="_blank" rel="noopener noreferrer">📄 查看挑战杯证书 ↗</a></div>
+        </div>
+        </div>
+
+            <div class="section-title">🎮 游戏阅历深度复盘 (Game DNA)</div>
+            <div class="game-blocks-container">
+        <div class="game-block" style="border-top-color: #3b82f6;">
+            <div class="block-header" style="background-color: #eff6ff; color: #3b82f6;">
+                <h3>⚔️ 竞技、合作与多人节奏 (Competitive & Co-op)</h3>
+                <span class="block-badge">王者荣耀 10年左右 | 荣耀王者75星</span>
+            </div>
+            <div class="block-body game-body-mosaic">
+                <div class="game-item game-item-primary">
+                    <div class="game-name">王者荣耀 · MOBA（2016年至今）</div>
+                    <div class="game-desc">荣耀王者75星，巅峰赛最高1877分，累计投入2000元以上，常玩辅助与中路。重点观察位置职责、团队节奏、英雄强弱势期与玩家在资源限制下的选择。</div>
+                    <div class="game-point-grid">
+                        <div class="game-point"><strong>中路体验</strong><span>稳定发育、控制KDA、减少无效阵亡；配合打野节奏，参与资源争夺和边线支援。</span></div>
+                        <div class="game-point"><strong>辅助体验</strong><span>关注视野、保护核心输出、拆火、续航，以及团战中的队友协作。</span></div>
+                        <div class="game-point"><strong>角色偏好</strong><span>少司缘、小乔、甄姬、朵莉亚、瑶、大禹、大乔；同时观察外形、强度与角色故事。</span></div>
+                        <div class="game-point"><strong>策划观察</strong><span>把“爽感”拆成玩家行为、触发条件、反馈收益与下一步选择。</span></div>
+                    </div>
+                </div>
+                <div class="game-side-items">
+                    <div class="game-item">
+                        <div class="game-name">元梦之星 · UGC地图（约30h）</div>
+                        <div class="game-desc">重点体验星世界中的解谜地图与恐怖地图，关注主题表达、关卡引导、障碍节奏与玩法反馈。当前为体验与分析，未制作或发布过地图。</div>
+                    </div>
+                    <div class="game-item">
+                        <div class="game-name">胡闹厨房1、2 / 双人成行</div>
+                        <div class="game-desc">《胡闹厨房》1、2代本体全部通关，双人模式均满星，曾单人同时控制两个角色通关2代；关注多人分工、沟通成本、路线规划与高压操作。</div>
+                    </div>
+                </div>
+                <div class="insight-box">💡 <b>策划思考：</b>从位置职责、团队节奏和协作压力出发，观察玩家如何在信息、资源与操作限制下做出选择，并把“爽点”拆成可验证的触发与反馈。</div>
+            </div>
+        </div>
+
+        <div class="game-block" style="border-top-color: #8b5cf6;">
+            <div class="block-header" style="background-color: #f5f3ff; color: #8b5cf6;">
+                <h3>📜 解谜叙事与沉浸体验 (Narrative & Puzzle)</h3>
+                <span class="block-badge">Rusty Lake 全系列通关 | 民俗悬疑</span>
+            </div>
+            <div class="block-body game-body-mosaic">
+                <div class="game-item game-item-primary">
+                    <div class="game-name">Rusty Lake系列（100h+）</div>
+                    <div class="game-desc">全系列通关，部分作品反复体验。偏好中等难度、具有巧思且不会过度劝退的谜题，尤其关注碎片线索、非线性发布顺序带来的世界观拼接，以及玩家解读、讨论和二次创作。</div>
+                    <div class="game-point-grid">
+                        <div class="game-point"><strong>谜题难度</strong><span>喜欢有巧思、能带来推理成就感，但不会因为过度劝退而打断体验的谜题。</span></div>
+                        <div class="game-point"><strong>线索组织</strong><span>观察信息如何投放、线索如何被回收，以及玩家能否形成自己的推理路径。</span></div>
+                        <div class="game-point"><strong>世界观拼接</strong><span>关注非线性发布顺序如何让玩家在碎片中建立完整的世界观。</span></div>
+                        <div class="game-point"><strong>玩家讨论</strong><span>留意玩家解读、讨论和二次创作如何延长内容的生命力。</span></div>
+                    </div>
+                </div>
+                <div class="game-side-items">
+                    <div class="game-item"><div class="game-name">纸嫁衣系列 / 烟火 / Gorogoa</div><div class="game-desc">体验民俗悬疑、现实题材叙事与艺术化解谜，关注线索组织、难度梯度、叙事节奏和玩家自行还原真相的过程。</div></div>
+                    <div class="game-item"><div class="game-name">其他悬疑解谜体验</div><div class="game-desc">《婆罗洲上的红珍珠》《鲁特里一家死了》等作品已通关，持续观察探索动线、信息投放与叙事氛围如何共同推动玩家前进。</div></div>
+                </div>
+                <div class="insight-box">💡 <b>策划思考：</b>优秀的叙事不一定依赖长篇说明，而是让玩家通过交互、线索和空间关系逐步悟出真相；我会重点分析引导强度与推理成就感之间的平衡。</div>
+            </div>
+        </div>
+
+        <div class="game-block" style="border-top-color: #10b981;">
+            <div class="block-header" style="background-color: #ecfdf5; color: #10b981;">
+                <h3>🏰 模拟经营、塔防与休闲闯关 (Strategy & Casual)</h3>
+                <span class="block-badge">流程优化 | 资源限制 | 关卡效率</span>
+            </div>
+            <div class="block-body game-body-mosaic">
+                <div class="game-item game-item-primary">
+                    <div class="game-name">飞机大厨 · 模拟经营与时间管理（100h+）</div>
+                    <div class="game-desc">不氪金满星通关十个城市并全部解锁，重点体验流程优化、时间管理、资源限制与重复关卡效率。</div>
+                    <div class="game-point-grid">
+                        <div class="game-point"><strong>流程优化</strong><span>在有限时间内安排上菜顺序和操作路径，持续寻找更稳定的通关流程。</span></div>
+                        <div class="game-point"><strong>资源限制</strong><span>观察金币、道具和操作窗口如何共同塑造关卡中的取舍。</span></div>
+                        <div class="game-point"><strong>重复效率</strong><span>关注玩家为什么愿意反复挑战同一关，以及效率提升如何形成成长反馈。</span></div>
+                        <div class="game-point"><strong>目标反馈</strong><span>分析星级目标、失败原因和关卡节奏如何影响继续尝试的意愿。</span></div>
+                    </div>
+                </div>
+                <div class="game-side-items">
+                    <div class="game-item"><div class="game-name">王国保卫战：起源 / 保卫萝卜系列</div><div class="game-desc">体验塔防玩法中的资源分配、防御塔组合、路线规划与局内最优解；《王国保卫战：起源》已通关。</div></div>
+                    <div class="game-item"><div class="game-name">开心消消乐 / 梦幻花园等（50h+）</div><div class="game-desc">关注轻度关卡的目标设计、失败反馈、重复游玩动力与长期内容节奏。</div></div>
+                </div>
+                <div class="insight-box">💡 <b>策划思考：</b>经营与塔防都在考验“资源限制下的最优解”，休闲关卡则需要把目标、反馈和难度控制在玩家愿意持续尝试的区间。</div>
+            </div>
+        </div>
+
+        <div class="game-block" style="border-top-color: #f59e0b;">
+            <div class="block-header" style="background-color: #fffbeb; color: #f59e0b;">
+                <h3>🎲 桌游、社交推理与剧本杀 (Tabletop & Social)</h3>
+                <span class="block-badge">桌游多次体验 | 剧本杀20+本</span>
+            </div>
+            <div class="block-body game-body-mosaic">
+                <div class="game-item game-item-primary">
+                    <div class="game-name">阿瓦隆 / 璀璨宝石 / 奥地利大饭店</div>
+                    <div class="game-desc">三款均有约20～30次体验。不同类型的桌游让我持续观察多人参与感、资源规划、经营管理和信息博弈如何共同形成策略乐趣。</div>
+                    <div class="game-point-grid">
+                        <div class="game-point"><strong>阿瓦隆</strong><span>喜欢多人都有参与感的身份推理，关注发言、信任和团队判断。</span></div>
+                        <div class="game-point"><strong>奥地利大饭店</strong><span>关注资源规划、经营管理和预判对手抢夺关键资源。</span></div>
+                        <div class="game-point"><strong>璀璨宝石</strong><span>观察资源转化、路线规划与公共资源竞争如何影响决策。</span></div>
+                        <div class="game-point"><strong>社交推理</strong><span>关注线下“发言、猜疑、互相影响”如何被抽象为规则与反馈。</span></div>
+                    </div>
+                </div>
+                <div class="game-side-items">
+                    <div class="game-item"><div class="game-name">其他桌游与信息博弈</div><div class="game-desc">体验狼人杀、花砖物语、自然和弦、情书、险恶疑航、富饶之城、百万美金等，关注身份信息、资源转化和风险控制。</div></div>
+                    <div class="game-item"><div class="game-name">线下剧本杀（20+本）</div><div class="game-desc">印象较深的作品包括《死亡回响》《鬼河怒放》《王不见王》《死者在幻夜中醒来》，关注故事还原、反转质量、难度与DM依赖。</div></div>
+                </div>
+                <div class="insight-box">💡 <b>策划思考：</b>桌游和剧本杀是研究社交、信息博弈与玩家表达的好样本，我会把线下互动拆解成线上可承载的规则和反馈。</div>
+            </div>
+        </div>
+
+        <div class="game-block" style="border-top-color: #ec4899;">
+            <div class="block-header" style="background-color: #fdf2f8; color: #ec4899;">
+                <h3>💌 剧情恋爱与养成 (Narrative & Progression)</h3>
+                <span class="block-badge">世界之外 | 2～3个月持续体验</span>
+            </div>
+            <div class="block-body game-body-single">
+                <div class="game-item game-item-primary">
+                    <div class="game-name">世界之外 · 女性向剧情恋爱与卡牌养成</div>
+                    <div class="game-desc">连续体验约2～3个月，期间几乎每天游玩，退游前已通关当时全部剧情。喜欢剧情代入感和恋爱沉浸感；后来因付费价值感、内容更新节奏及自身类型偏好变化而退游。</div>
+                    <div class="game-point-grid">
+                        <div class="game-point"><strong>剧情代入</strong><span>关注角色关系、叙事推进和玩家如何建立情感投入。</span></div>
+                        <div class="game-point"><strong>成长养成</strong><span>观察卡牌养成与剧情解锁之间如何形成持续游玩的目标。</span></div>
+                        <div class="game-point"><strong>付费价值</strong><span>从玩家角度判断付费内容是否与投入成本、成长收益相匹配。</span></div>
+                        <div class="game-point"><strong>内容更新</strong><span>关注更新频率、剧情节奏和长期内容供给对留存的影响。</span></div>
+                    </div>
+                </div>
+                <div class="insight-box">💡 <b>策划思考：</b>玩家是否长期留下，不只取决于内容喜好，也取决于更新频率、付费价值感与成长反馈能否持续形成正循环。</div>
+            </div>
+        </div>
+        </div>
+
+            <div class="section-title">🚀 策划案与作品 (Portfolio)</div>
+
+        <div class="project-card">
+            <div class="project-info">
+                <h3>王者荣耀终极觉醒构想 - [少司缘]</h3>
+                <p>针对辅助位进行的机制反推案，产出了完整的技能逻辑文档。</p>
+            </div>
+            <div class="project-action"><a href="https://www.canva.com/design/DAG7RgyT2qY/eqe4VIsEAlFopA2d7u51vA/edit?ui=eyJBIjp7fX0" target="_blank" class="btn-link">📄 查看策划案/Demo</a></div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-info">
+                <h3>《元梦之星》MOBA模式卡牌设计作品集</h3>
+                <p>腾讯实习期间参与的MOBA模式英雄卡牌设计与玩法优化，包含卡牌机制、技能联动、战斗体验与跑测思路。</p>
+            </div>
+            <div class="project-action"><a href="https://pan.baidu.com/s/1Sk-aGjlqxAjYa_MueEWoeQ?pwd=1234" target="_blank" rel="noopener noreferrer" class="btn-link">📄 查看腾讯卡牌作品集</a></div>
+        </div>
+
+            <div style="text-align: center; margin-top: 50px; color: #ccc; font-size: 0.8rem;">
+                <p>Personal portfolio · updated 2026</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    
