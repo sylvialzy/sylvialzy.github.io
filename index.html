@@ -26,6 +26,10 @@
             .trait-icon { font-size: 2rem; }
             .trait-label { font-weight: bold; color: var(--primary); font-size: 0.95rem; margin-bottom: 4px; }
             .trait-text { font-size: 0.85rem; color: #666; line-height: 1.4; }
+            .trait-list { margin: 7px 0 0; padding-left: 18px; color: #666; font-size: 0.85rem; line-height: 1.5; }
+            .trait-list li { margin-bottom: 3px; }
+            .trait-list li:last-child { margin-bottom: 0; }
+            .trait-list b { color: #3f4c68; }
 
             .edu-item { background: white; padding: 25px; border-radius: 12px; margin-bottom: 15px; display: flex; gap: 20px; border-left: 5px solid var(--accent); box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
             .edu-icon { font-size: 2rem; }
@@ -57,6 +61,21 @@
             .project-card { background: white; padding: 25px; border-radius: 12px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; gap: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.03); border: 1px solid #eee; }
             .project-info h3 { margin: 0 0 5px; color: var(--primary); }
             .project-info p { margin: 0; color: #666; font-size: 0.9rem; }
+            .ai-project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 20px; }
+            .ai-project-card { padding: 24px; background: white; border: 1px solid #e8eaf3; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.035); }
+            .ai-project-topline { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+            .ai-project-tag { display: inline-block; padding: 4px 10px; border-radius: 999px; background: #f0efff; color: #5345bd; font-size: 0.75rem; font-weight: 800; }
+            .ai-project-tag-cyan { background: #e5f8fa; color: #197f89; }
+            .ai-project-index { color: #a2a7b7; font-size: 0.75rem; font-weight: 800; }
+            .ai-project-card h3 { margin: 13px 0 8px; color: #2d3748; font-size: 1.1rem; line-height: 1.4; }
+            .ai-project-card p { margin: 0; color: #667085; font-size: 0.88rem; line-height: 1.6; }
+            .ai-project-list { margin: 16px 0 18px; padding-left: 18px; color: #667085; font-size: 0.84rem; line-height: 1.55; }
+            .ai-project-list li { margin-bottom: 6px; }
+            .ai-project-list li:last-child { margin-bottom: 0; }
+            .ai-project-list b { color: #3f4c68; }
+            .ai-project-button { display: inline-block; }
+            @media (max-width: 768px) { .ai-project-grid { grid-template-columns: 1fr; } }
+
             .btn-link { background: var(--primary); color: white; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; transition: opacity 0.2s; white-space: nowrap; }
             .btn-link:hover { opacity: 0.9; }
             .btn-disabled { background: #eee; color: #999; padding: 10px 20px; border-radius: 8px; font-size: 0.85rem; cursor: default; white-space: nowrap; }
@@ -162,7 +181,7 @@
     <body>
         <header>
             <div class="header-inner">
-                <img src="avatar.jpg" alt="刘梓钰头像" class="profile-photo">
+                <img src="avatar.jpg" alt="刘梓钰头像" class="profile-photo"> alt="Profile" class="profile-photo">
                 <div>
                     <h1>刘梓钰 (Sylvia)</h1>
                     <div style="margin: 10px 0; font-weight: bold; opacity: 0.9;">游戏策划实习生 / 数字经济硕士在读</div>
@@ -183,7 +202,7 @@
             <div class="trait-icon">🗣️</div>
             <div class="trait-content">
                 <div class="trait-label">语言优势 (Language)</div>
-                <div class="trait-text"><b>英语：</b>大学英语四级、大学英语六级、专业四级、专业八级<br><b>日语：</b>专业四级、专业八级、N1</div>
+                <ul class="trait-list"><li><b>英语：</b>大学英语四级、大学英语六级、专业四级、专业八级</li><li><b>日语：</b>专业四级、专业八级、N1</li></ul>
             </div>
         </div>
         
@@ -191,7 +210,7 @@
             <div class="trait-icon">♓</div>
             <div class="trait-content">
                 <div class="trait-label">双鱼座 (Pisces)</div>
-                <div class="trait-text">想象力丰富，极强的共情能力，能敏锐捕捉玩家在社交互动中的情感需求。</div>
+                <ul class="trait-list"><li>想象力丰富，擅长捕捉灵感</li><li>共情力强，关注玩家情绪</li><li>敏感于社交互动中的关系变化</li></ul>
             </div>
         </div>
         
@@ -199,7 +218,7 @@
             <div class="trait-icon">🎭</div>
             <div class="trait-content">
                 <div class="trait-label">MBTI: ESFP</div>
-                <div class="trait-text">外向、热情、善于共情，大胆、敢于尝试。</div>
+                <ul class="trait-list"><li>外向表达，喜欢交流与协作</li><li>热情投入，重视真实体验</li><li>善于捕捉玩家情绪与社交需求</li></ul>
             </div>
         </div>
         
@@ -207,7 +226,7 @@
             <div class="trait-icon">🏸</div>
             <div class="trait-content">
                 <div class="trait-label">体能充沛</div>
-                <div class="trait-text">羽毛球 / 游泳。保持高强度的运动习惯，抗压能力Max。</div>
+                <ul class="trait-list"><li>羽毛球 / 游泳</li><li>保持规律运动习惯</li><li>在高强度任务中保持精力与抗压性</li></ul>
             </div>
         </div>
         
@@ -260,7 +279,7 @@
                 <div class="exp-title">💼 上海交大工业技术创新研究院</div>
                 <div class="exp-role">综合管理部实习生（AI与孵化方向） | 2024.09 - 2025.05</div>
             </div>
-            <div class="exp-desc"><div class="exp-point"><b>孵化器体系搭建：</b>从0到1搭建孵化器组织架构与飞书体系，协助编写各项制度、制定财务预算并完善日常协作流程</div><div class="exp-point"><b>入孵企业对接：</b>全周期服务12家科创企业入孵，协助完成工商注册、政策申报等事务支持，跟进企业在孵期间的需求</div><div class="exp-point"><b>政府与活动协作：</b>与徐汇区相关部门保持沟通，协助企业成长；策划执行“AI+”产学研融合活动10场，合作方包括交大硬科技、way to agi社区等，覆盖2000+人次</div><div class="exp-point"><b>AI工具实践：</b>使用Coze搭建发票查重Agent，自动提取发票关键字段并与历史记录比对，辅助识别重复使用发票</div></div><div class="keyword-row"><span class="keyword keyword-warm">项目统筹</span><span class="keyword keyword-warm">AI实践</span><span class="keyword keyword-warm">活动落地</span></div>
+            <div class="exp-desc"><div class="exp-point"><b>孵化器体系搭建：</b>从0到1搭建孵化器组织架构与飞书体系，协助编写各项制度、制定财务预算并完善日常协作流程</div><div class="exp-point"><b>入孵企业对接：</b>全周期服务12家科创企业入孵，协助完成工商注册、政策申报等事务支持，跟进企业在孵期间的需求</div><div class="exp-point"><b>政府与活动协作：</b>与徐汇区相关部门保持沟通，协助企业成长；策划执行“AI+”产学研融合活动10场，合作方包括交大硬科技、way to agi社区等，覆盖2000+人次</div><div class="exp-point"><b>AI工具实践：</b>使用Coze搭建发票查重Agent，自动提取发票关键字段并与历史记录比对，辅助识别重复使用发票；同时参与投资风险提示助手的信息提取与舆情整理</div></div><div class="keyword-row"><span class="keyword keyword-warm">项目统筹</span><span class="keyword keyword-warm">AI实践</span><span class="keyword keyword-warm">活动落地</span></div>
         </div>
 
         <div class="exp-item">
@@ -269,7 +288,7 @@
                 <div class="exp-title">💼 普华永道中天会计师事务所（特殊普通合伙）</div>
                 <div class="exp-role">审计部实习生 | 2024.01.16 - 2024.03.08</div>
             </div>
-            <div class="exp-desc"><div class="exp-point"><b>与客户、银行沟通：</b>与甲方客户建立有效沟通，获取银行对账单、信用报告等关键财务资料，并与中日两国银行电话交流跟进函证进度</div><div class="exp-point"><b>函证流程优化：</b>基于银行账户信息统计发函数据，确认回函内容并计算回函比例；针对未回函部分实施替代测试，保障数据完整性和准确性</div><div class="exp-point"><b>报表底稿编制：</b>协助完成资产、负债等七大核心报表科目底稿的撰写与整理，核对数据并保持工作底稿的完整性</div></div><div class="keyword-row"><span class="keyword">数据敏感度</span><span class="keyword keyword-cyan">流程意识</span><a class="keyword keyword-cyan" href="internship_certificate_pwc.pdf" target="_blank" rel="noopener noreferrer">📄 查看实习证明 ↗</a></div>
+            <div class="exp-desc"><div class="exp-point"><b>客户与银行沟通：</b>与甲方客户建立有效沟通，获取银行对账单、信用报告等关键财务资料，并与中日两国银行跟进函证进度</div><div class="exp-point"><b>函证流程优化：</b>基于银行账户信息统计发函数据，确认回函内容并计算回函比例；针对未回函部分实施替代测试，保障数据完整性和准确性</div><div class="exp-point"><b>报表底稿编制：</b>协助完成资产、负债等七大核心报表科目底稿的撰写与整理，核对数据并保持工作底稿的完整性</div></div><div class="keyword-row"><span class="keyword">数据敏感度</span><span class="keyword keyword-cyan">流程意识</span><a class="keyword keyword-cyan" href="internship_certificate_pwc.pdf" target="_blank" rel="noopener noreferrer">📄 查看实习证明 ↗</a></div>
         </div>
         </div>
 
@@ -435,8 +454,27 @@
                 <h3>《元梦之星》MOBA模式卡牌设计作品集</h3>
                 <p>腾讯实习期间参与的MOBA模式英雄卡牌设计与玩法优化，包含卡牌机制、技能联动、战斗体验与跑测思路。</p>
             </div>
-            <div class="project-action"><a href="https://sylvialzy.github.io/yuanmeng-moba-portfolio/" target="_blank" rel="noopener noreferrer" class="btn-link">📄 查看腾讯卡牌作品集</a></div>
+            <div class="project-action"><a href="https://pan.baidu.com/s/1Sk-aGjlqxAjYa_MueEWoeQ?pwd=1234" target="_blank" rel="noopener noreferrer" class="btn-link">📄 查看腾讯卡牌作品集</a></div>
         </div>
+
+
+            <div class="section-title">🤖 AI项目与人机协作 (AI Projects)</div>
+            <div class="ai-project-grid">
+        <div class="ai-project-card">
+            <div class="ai-project-topline"><span class="ai-project-tag">AI × 游戏策划</span><span class="ai-project-index">01</span></div>
+            <h3>人机协作的游戏策划作品集：从分散材料到在线交付</h3>
+            <p>以真实实习材料、卡牌表格、项目背景和实机视频为基础，通过一问一答收集信息、人工确认事实，再由AI协助完成内容结构化、网页生成、视频整理和GitHub Pages发布。</p>
+            <ul class="ai-project-list"><li><b>我的工作：</b>确认设计事实、职责边界、作品状态与最终展示方式</li><li><b>AI协作：</b>信息提问、内容整理、HTML/CSS生成、路径处理与部署排错</li><li><b>最终产出：</b>包含冰夷、诺娃、公共卡方案和23个实机视频的在线作品集</li></ul>
+            <a class="btn-link ai-project-button" href="https://sylvialzy.github.io/yuanmeng-moba-portfolio/ai-project/" target="_blank" rel="noopener noreferrer">查看项目案例 ↗</a>
+        </div>
+        <div class="ai-project-card">
+            <div class="ai-project-topline"><span class="ai-project-tag ai-project-tag-cyan">AI × 数据产品</span><span class="ai-project-index">02</span></div>
+            <h3>InvestorShield AI：新闻情绪分析驱动的投资风险提示助手</h3>
+            <p>从“新闻情绪是否能帮助理解股价变化”的研究问题出发，和AI协作完成数据采集、情感评分、相关性分析、模型规则、前后端交互与在线部署。</p>
+            <ul class="ai-project-list"><li><b>研究流程：</b>股票样本、三类新闻来源、情感分数、交易日对齐与相关性验证</li><li><b>产品功能：</b>输入股票名称，生成任务进度、新闻依据、平台状态、分析报告与风险提示</li><li><b>技术协作：</b>AI辅助完成采集代码、API情感分析、FastAPI前后端和部署排错</li></ul>
+            <a class="btn-link ai-project-button" href="https://sylvialzy.github.io/-investor-shield-ai/project-book.html" target="_blank" rel="noopener noreferrer">查看项目说明 ↗</a>
+        </div>
+            </div>
 
             <div style="text-align: center; margin-top: 50px; color: #ccc; font-size: 0.8rem;">
                 <p>Personal portfolio · updated 2026</p>
